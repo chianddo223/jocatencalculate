@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        #result {
+            color: gray;
+            width: 180px;
+            height: 50px;
+            margin: 5px;
+            text-align: right
+        }
+
+        #operator {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            text-align: center
+        }
+
+        button {
+            width: 50px;
+            height: 50px;
+            margin: 5px
+        }
+    </style>
+</head>
+
+<body>
+    <input readonly id="operator">
+    <input readonly placeholder="0" type="number" id="result">
+    <div class="row">
+        <button class="number_button" id="num-7">7</button>
+        <button class="number_button" id="num-8">8</button>
+        <button class="number_button" id="num-9">9</button>
+        <button id="plus">+</button>
+    </div>
+    <div class="row">
+        <button class="number_button" id="num-4">4</button>
+        <button class="number_button" id="num-5">5</button>
+        <button class="number_button" id="num-6">6</button>
+        <button id="minus">-</button>
+    </div>
+    <div class="row">
+        <button class="number_button" id="num-1">1</button>
+        <button class="number_button" id="num-2">2</button>
+        <button class="number_button" id="num-3">3</button>
+        <button id="divide">/</button>
+    </div>
+    <div class="row">
+        <button id="clear">C</button>
+        <button class="number_button" id="num-0">0</button>
+        <button id="calculate">=</button>
+        <button id="multiply">x</button>
+    </div>
+
+    <script>
+
+        const $operator = document.querySelector('#operator');
+        const $result = document.querySelector('#result');
+        const $calculate = document.querySelector('#calculate');
+
+        const $numBtn = document.querySelectorAll('.number_button');
+
+        const $numZero = document.querySelector('#num-0');
+        const $numOne = document.querySelector('#num-1');
+        const $numTwo = document.querySelector('#num-2');
+        const $numThree = document.querySelector('#num-3');
+        const $numFour = document.querySelector('#num-4');
+        const $numFive = document.querySelector('#num-5');
+        const $numSix = document.querySelector('#num-6');
+        const $numSeven = document.querySelector('#num-7');
+        const $numEight = document.querySelector('#num-8');
+        const $numNine = document.querySelector('#num-9');
+
+        $numBtn.forEach(button => button.addEventListener('click', onClickNumber));
+
+        // document.querySelector('#plus').addEventListener('click', onClickOperator('+'));
+        // document.querySelector('#minus').addEventListener('click', onClickOperator('-'));
+        // document.querySelector('#divide').addEventListener('click', onClickOperator('/'));
+        // document.querySelector('#multiply').addEventListener('click', onClickOperator('*'));
+        // document.querySelector('#calculate').addEventListener('click', () => { });
+        $calculate.addEventListener('click', showNum);
+
+        $numZero.addEventListener('click', identifyZero);
+        $numOne.addEventListener('click', identifyOne);
+        $numTwo.addEventListener('click', identifyTwo);
+        $numThree.addEventListener('click', identifyThree);
+        $numFour.addEventListener('click', identifyFour);
+        $numFive.addEventListener('click', identifyFive);
+        $numSix.addEventListener('click', identifySix);
+        $numSeven.addEventListener('click', identifySeven);
+        $numEight.addEventListener('click', identifyEight);
+        $numNine.addEventListener('click', identifyNine);
+
+        function identifyZero() {
+            onClickNumber(0);
+        }
+
+        function identifyOne() {
+            onClickNumber(1);
+        }
+    
+        function identifyTwo() {
+            onClickNumber(2);
+        }
+
+        function identifyThree() {
+            onClickNumber(3);
+        }
+
+        function identifyFour() {
+            onClickNumber(4);
+        }
+
+        function identifyFive() {
+            onClickNumber(5);
+        }
+
+        function identifySix() {
+            onClickNumber(6);
+        }
+
+        function identifySeven() {
+            onClickNumber(7);
+        }
+
+        function identifyEight() {
+            onClickNumber(8);
+        }
+
+        function identifyNine() {
+            onClickNumber(9);
+        }
+
+        function showNum() {
+            $result.style.color = 'black';
+        }
+        $result.value = ' ';
+        function onClickNumber(num) {
+            $result.value = $result.value + String(num);
+            // $result.value = console.log($result.value + String(num))
+        }
+    </script>
+</body>
+
+</html>
